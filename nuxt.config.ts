@@ -6,5 +6,10 @@ export default defineNuxtConfig({
   ],
   content: {
     documentDriven: true
+  },
+  app: {
+    head: {
+      titleTemplate: '%s | UCI Math Lecture Notes'
+    }
   }
 })
