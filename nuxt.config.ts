@@ -5,7 +5,26 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss'
   ],
   content: {
-    documentDriven: true
+    documentDriven: true,
+    markdown: {
+      remarkPlugins: ['remark-math'],
+      rehypePlugins: [
+        ['rehype-mathjax', {
+          tex: {
+            tags: 'ams',
+            macros: {
+              eps: '{\\varepsilon}',
+              Q: '{\\mathbb{Q}}',
+              R: '{\\mathbb{R}}',
+              C: '{\\mathbb{C}}',
+              Z: '{\\mathbb{Z}}',
+              F: '{\\mathbb{F}}',
+              N: '{\\mathbb{N}}'
+            }
+          }
+        }]
+      ]
+    }
   },
   app: {
     head: {
