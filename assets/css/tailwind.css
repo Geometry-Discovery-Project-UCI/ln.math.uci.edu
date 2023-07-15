@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.math path {
+    @apply stroke-[20px];
+}
+
+.math-inline svg {
+    @apply inline;
+}
+
+.math-display svg {
+    @apply mx-auto;
+}
+
+.math-display {
+    @apply overflow-auto;
+}
