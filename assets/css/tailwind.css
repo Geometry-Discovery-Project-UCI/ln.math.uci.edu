@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+mjx-container.MathJax path {
+    @apply stroke-[20px];
+}
+
+mjx-container.MathJax svg {
+    @apply inline;
+}
+
+/* mjx-container[display=true] svg {
+    @apply mx-auto;
+} */
+
+mjx-container[display=true] {
+    @apply overflow-auto;
+}
