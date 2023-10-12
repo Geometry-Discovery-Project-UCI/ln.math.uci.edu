@@ -13,7 +13,7 @@
                         </svg>
                     </label>
                 </div>
-                <div class="flex- 1 btn btn-ghost px-2 mx-2 lg:hidden">
+                <div class="flex-1 btn btn-ghost px-2 mx-2 lg:hidden">
                     <NuxtLink to="/">Lecture Notes</NuxtLink>
                 </div>
                 <!-- Navbar menu content here -->
@@ -25,13 +25,13 @@
                 </div>
             </div>
             <!-- Page content here -->
-            <article class="prose px-8 max-w-none">
+            <article class="prose px-8 max-w-[100vw]">
                 <slot></slot>
             </article>
         </div>
         <div class="drawer-side">
             <label for="home-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
-            <div class="h-16 bg-base-200 sticky top-0 z-20 hidden items-center gap-2 px-4 backdrop-blur lg:flex ">
+            <div class="h-16 bg-base-200 sticky top-0 z-20 hidden items-center gap-2 px-4 backdrop-blur lg:flex">
                 <div class="btn btn-ghost px-2 py-1">
                     <NuxtLink to="/">Lecture Notes</NuxtLink>
                 </div>
