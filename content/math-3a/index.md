@@ -1,10 +1,13 @@
 # MATH 3A
 
-::ContentCounter
+::Theorem
+This is a theorem.
 ::
 
-::ContentCounter
+::Proposition
+This is a proposition.
 ::
 
-::ContentCounter
+::Definition
+This is a definition.
 ::

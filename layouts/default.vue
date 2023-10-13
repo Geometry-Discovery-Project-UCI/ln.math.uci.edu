@@ -31,7 +31,7 @@
                 </div>
             </div>
             <!-- Page content here -->
-            <article class="prose px-8 max-w-[100vw]">
+            <article class="prose px-8 max-w-[100vw] prose-p:my-2">
                 <slot></slot>
             </article>
         </div>
@@ -48,11 +48,12 @@
 </template>
 
 <script setup lang="ts">
-import { useCounterStore } from '@/stores/counter';
+import { useDefinitionCounterStore, usePropositionCounterStore, useTheoremCounterStore } from '@/stores/counter';
 import { useSummaryStore } from '@/stores/summary';
 
 const route = useRoute();
 const summary = useSummaryStore();
-const counter = useCounterStore();
-counter.zero();
+useDefinitionCounterStore().zero()
+usePropositionCounterStore().zero();
+useTheoremCounterStore().zero();
 </script>
