@@ -18,10 +18,16 @@
                 </div>
                 <!-- Navbar menu content here -->
                 <div class="flex-none hidden lg:block">
-                    <ul class="menu menu-horizontal">
-                        <li><a>Navbar Item 1</a></li>
-                        <li><a>Navbar Item 2</a></li>
-                    </ul>
+                    <div class="mx-2 text-sm breadcrumbs">
+                        <ul>
+                            <li>
+                                <NuxtLink to="/">Home</NuxtLink>
+                            </li>
+                            <li v-for="p in summary.flattened?.get(route.fullPath)?.path">
+                                <NuxtLink :to="p.url">{{ p.title }}</NuxtLink>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <!-- Page content here -->
@@ -36,11 +42,17 @@
                     <NuxtLink to="/">Lecture Notes</NuxtLink>
                 </div>
             </div>
-            <TreeMenu :data="summary" />
+            <TreeMenu :tree="summary.tree!" :flattened="summary.flattened!" />
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-const { summary } = await queryContent("/summary").findOne();
+import { useCounterStore } from '@/stores/counter';
+import { useSummaryStore } from '@/stores/summary';
+
+const route = useRoute();
+const summary = useSummaryStore();
+const counter = useCounterStore();
+counter.zero();
 </script>

@@ -1,24 +1,17 @@
 <template>
     <ul class="menu p-2 min-h-full bg-base-200 text-base-content">
-        <li v-for="(item, index) in data">
-            <NuxtLink :to="item.url">{{ _prefix }}{{ index + 1 }}. {{ item.title }}</NuxtLink>
-            <TreeMenu v-if="item.chapters" :data="item.chapters" :_prefix="`${_prefix}${index + 1}.`" />
+        <li v-for="item in tree">
+            <NuxtLink :to="item.url">
+                {{ item.path.map(v => v.sectionNumber).join('.') }}. {{ item.title }}
+            </NuxtLink>
+            <TreeMenu v-if="item.chapters" :tree="item.chapters" :flattened="flattened" />
         </li>
     </ul>
 </template>
 
 <script setup lang="ts">
-interface MenuItem {
-    title: string;
-    url?: string;
-    chapters?: MenuItem[];
-}
-
-withDefaults(defineProps<{
-    data: MenuItem[];
-    _prefix: string;
-}>(), {
-    _prefix: '',
-});
-;
+defineProps<{
+    tree: ParsedSummaryItem[];
+    flattened: Map<string, ParsedSummaryItem>;
+}>();
 </script>

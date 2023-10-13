@@ -9,6 +9,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
     '@nuxtjs/tailwindcss',
+    '@pinia/nuxt',
   ],
   content: {
     documentDriven: true,
@@ -35,5 +36,11 @@ export default defineNuxtConfig({
   tailwindcss: {
     configPath: './tailwind.config.js',
     viewer: false,
+  },
+  pinia: {
+    autoImports: [
+      'defineStore',
+      ['defineStore', 'definePiniaStore'],
+    ]
   }
 })
