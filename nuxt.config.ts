@@ -7,8 +7,8 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: true },
   modules: [
-    '@nuxt/content',
     '@nuxtjs/tailwindcss',
+    '@nuxt/content',
     '@pinia/nuxt',
   ],
   content: {
@@ -26,7 +26,8 @@ export default defineNuxtConfig({
               C: '{\\mathbb{C}}',
               Z: '{\\mathbb{Z}}',
               F: '{\\mathbb{F}}',
-              N: '{\\mathbb{N}}'
+              N: '{\\mathbb{N}}',
+              pa: '{\\partial}'
             }
           }
         }]

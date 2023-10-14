@@ -17,3 +17,15 @@ mjx-container[display=true] svg {
 mjx-container.MathJax {
     @apply overflow-auto;
 }
+
+.red {
+	@apply text-red-500;
+}
+
+.voilet {
+    @apply text-violet-700;
+}
+
+.green {
+    @apply text-green-600;
+}

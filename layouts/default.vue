@@ -31,7 +31,7 @@
                 </div>
             </div>
             <!-- Page content here -->
-            <article class="prose px-8 max-w-[100vw] prose-p:my-2">
+            <article class="prose px-8 max-w-[100vw] prose-p:my-2 prose-p:text-black prose-h1:text-green-700 ">
                 <slot></slot>
             </article>
         </div>

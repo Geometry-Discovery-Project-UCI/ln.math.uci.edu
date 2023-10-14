@@ -4,5 +4,12 @@ summary:
     chapters:
       - title: Linear Equations
         url: /math-3a/linear-equations
+
   - title: MATH 240BC
     url: /math-240bc
+    chapters:
+      - title: Preliminaries
+        url: /math-240bc/preliminaries
+        chapters: 
+          - title: Integration on manifold
+            url: /math-240bc/integration
