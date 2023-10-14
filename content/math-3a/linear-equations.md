@@ -15,10 +15,11 @@ For example, $4x_1-5x_2+2=x_1$ is a linear equation, $\sqrt 2 x_1+\pi x_2=-1$ is
 A [*system of linear equations*]{.text-red-500}  or a [*linear system*]{.text-red-500}
  is a collection of one or more linear equation involving the same variables $x_1,\cdots,x_n$. For example 
 
+
 $$
 \left\{
 \begin{array}{l}
-2x_1-x_2+1.5 x_3=8\\
+\color{red}{2x_1-x_2+1.5 x_3=8}\\
 x_1-4x_3=-7
 \end{array}
 \right.
@@ -88,11 +89,11 @@ x_1&-&2x_2&+&x_3&=&0\\
 5x_1&&&-&5x_3&=&10
 \end{matrix}
 \qquad \qquad
-[\begin{bmatrix}
+\begin{bmatrix}
 1&-2&1&0\\
 0&2&-8&8\\
 5&0&-5&10
-\end{bmatrix}]{.text-red-500}
+\end{bmatrix}
 $$
 
 <br/>
