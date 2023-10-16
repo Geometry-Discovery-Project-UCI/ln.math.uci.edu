@@ -51,18 +51,18 @@ export function parseSummary(items: SummaryItem[]): ParsedSummaryItem[] {
     return parse(items, []);
 }
 
-export function flatten(items: ParsedSummaryItem[]): Map<string, ParsedSummaryItem> {
-    const result: Map<string, ParsedSummaryItem> = new Map<string, ParsedSummaryItem>();
-
+function flattenRecursive(items: ParsedSummaryItem[], result: Map<string, ParsedSummaryItem>): void {
     for (const item of items) {
         result.set(item.url || '', item);
 
         if (item.chapters) {
-            for (const chapter of item.chapters) {
-                result.set(chapter.url || '', chapter);
-            }
+            flattenRecursive(item.chapters, result);
         }
     }
+}
 
+export function flatten(items: ParsedSummaryItem[]): Map<string, ParsedSummaryItem> {
+    const result: Map<string, ParsedSummaryItem> = new Map<string, ParsedSummaryItem>();
+    flattenRecursive(items, result);
     return result;
 }

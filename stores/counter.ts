@@ -1,15 +1,6 @@
-export const useTheoremCounterStore = defineStore('theoremCounter', () => {
-    const count = ref(0);
-    function increment() {
-        count.value++;
-    }
-    function zero() {
-        count.value = 0;
-    }
-    return { count, increment, zero };
-});
+import { StoreDefinition } from "pinia";
 
-export const useDefinitionCounterStore = defineStore('definitionCounter', () => {
+function counter() {
     const count = ref(0);
     function increment() {
         count.value++;
@@ -18,15 +9,15 @@ export const useDefinitionCounterStore = defineStore('definitionCounter', () => 
         count.value = 0;
     }
     return { count, increment, zero };
-});
+}
 
-export const usePropositionCounterStore = defineStore('propositionCounter', () => {
-    const count = ref(0);
-    function increment() {
-        count.value++;
-    }
-    function zero() {
-        count.value = 0;
-    }
-    return { count, increment, zero };
-});
+export type CounterStore = StoreDefinition<string, {
+    "count": number;
+}, {}, {
+    increment: () => void;
+    zero: () => void;
+}>
+
+export const useTheoremCounterStore: CounterStore = defineStore('theoremCounter', counter);
+export const useDefinitionCounterStore: CounterStore = defineStore('definitionCounter', counter);
+export const usePropositionCounterStore: CounterStore = defineStore('propositionCounter', counter);
