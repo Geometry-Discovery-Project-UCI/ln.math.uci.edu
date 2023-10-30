@@ -10,11 +10,7 @@ mjx-container svg {
     @apply inline;
 }
 
-mjx-container[display=true] svg {
-    @apply mx-auto;
-}
-
-mjx-container.MathJax {
+mjx-container {
     @apply overflow-auto;
 }
 

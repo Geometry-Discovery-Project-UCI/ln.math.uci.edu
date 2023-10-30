@@ -1,0 +1,7 @@
+books:
+  - title: MATH 3A
+    description: Introduction To Linear Algebra
+    url: /math-3a
+  - title: Math 240BC
+    description: Differntial Geometry
+    url: /math-240bc
