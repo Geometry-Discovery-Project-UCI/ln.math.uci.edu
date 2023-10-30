@@ -2,7 +2,7 @@
     <div class="dark:bg-base-200 w-full min-h-12 px-4 py-2 rounded-xl my-6 border-[1px] flex flex-col items-start"
         :class="`${bgColor} ${borderColor}`">
         <div class="font-serif font-bold mt-[-1.5rem] px-4 ml-2 text-white" :class="`${tagBgColor}`">
-            {{ name }} {{ flattened?.get(route.fullPath)?.path.map(v => v.sectionNumber).join('.') }}.{{ count }}
+            {{ name }} {{ count }}
         </div>
         <div>
             <slot></slot>
@@ -11,11 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { useSummaryStore } from "@/stores/summary";
 import { CounterStore } from "@/stores/counter";
-
-const route = useRoute()
-const { flattened } = useSummaryStore();
 
 const props = defineProps<{
     name: string

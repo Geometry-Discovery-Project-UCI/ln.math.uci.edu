@@ -1,4 +1,6 @@
-# Integration on manifold
+---
+title: Integration on manifold
+---
 
 In order to define integration on a general manifold,  we need to define a concept called ***[density]{.red}***, which is discussed, for example,  at  [Topics in Differential Geometry by Peter W. Michor](http://www.mat.univie.ac.at/~michor/dgbook.pdf). For the sake of simplicity, we shall only define the integration of top form over orientable manifold. 
 

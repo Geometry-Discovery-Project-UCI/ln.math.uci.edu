@@ -1,4 +1,6 @@
-# Linear Equations
+---
+title: Linear Equations
+---
 
 A [*linear equation*]{.text-red-500} can be written as 
 $$

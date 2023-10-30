@@ -2,7 +2,7 @@
     <ul class="menu p-2 min-h-full bg-base-200 text-base-content">
         <li v-for="item in tree">
             <NuxtLink :to="item.url">
-                {{ item.path.map(v => v.sectionNumber).join('.') }}. {{ item.title }}
+                {{ item.path.at(-1)?.sectionNumber }}. {{ item.title }}
             </NuxtLink>
             <TreeMenu v-if="item.chapters" :tree="item.chapters" :flattened="flattened" />
         </li>

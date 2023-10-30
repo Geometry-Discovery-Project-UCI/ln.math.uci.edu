@@ -13,9 +13,7 @@
                         </svg>
                     </label>
                 </div>
-                <div class="flex-1 btn btn-ghost px-2 mx-2 lg:hidden">
-                    <NuxtLink to="/">Lecture Notes</NuxtLink>
-                </div>
+                <NuxtLink to="/" class="flex-1 btn btn-ghost px-2 mx-2 lg:hidden">Lecture Notes</NuxtLink>
                 <!-- Navbar menu content here -->
                 <div class="flex-none hidden lg:block">
                     <div class="mx-2 text-sm breadcrumbs">
@@ -23,7 +21,7 @@
                             <li>
                                 <NuxtLink to="/">Home</NuxtLink>
                             </li>
-                            <li v-for="p in flattened.get(route.fullPath)?.path">
+                            <li v-for="p in flattened.get(fullPath)?.path">
                                 <NuxtLink :to="p.url">{{ p.title }}</NuxtLink>
                             </li>
                         </ul>
@@ -31,16 +29,22 @@
                 </div>
             </div>
             <!-- Page content here -->
-            <article class="prose px-8 max-w-[100vw] prose-p:my-2 prose-p:text-black dark:prose-p:text-white prose-h1:text-green-700 ">
-                <slot></slot>
+            <article
+                class="prose px-8 max-w-[100vw] prose-p:my-2 prose-p:text-black dark:prose-p:text-white prose-h1:text-green-700 ">
+                <h1>{{ prefix ? `${prefix}.` : "" }} {{ doc.title }}</h1>
+                <ContentRenderer :value="doc">
+                    <template #empty>
+                        <p>
+                            Navigate using the sidebar on the left.
+                        </p>
+                    </template>
+                </ContentRenderer>
             </article>
         </div>
         <div class="drawer-side">
             <label for="home-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
             <div class="h-16 bg-base-200 sticky top-0 z-20 hidden items-center gap-2 px-4 backdrop-blur lg:flex">
-                <div class="btn btn-ghost px-2 py-1">
-                    <NuxtLink to="/">Lecture Notes</NuxtLink>
-                </div>
+                <NuxtLink to="/" class="btn btn-ghost px-2 py-1">Lecture Notes</NuxtLink>
             </div>
             <TreeMenu :tree="tree" :flattened="flattened" />
         </div>
@@ -49,14 +53,17 @@
 
 <script setup lang="ts">
 import { useDefinitionCounterStore, usePropositionCounterStore, useTheoremCounterStore } from '@/stores/counter';
-import { useSummaryStore } from '~/stores/summary';
+import { useSummaryStore } from '@/stores/summary';
 
-const route = useRoute();
-const summaryUrl = `/${route.fullPath.split('/')[1]}/summary`;
+const { fullPath } = useRoute()
+
+const summaryUrl = `/${fullPath.split('/')[1]}/summary`;
 const { summary } = await queryContent(summaryUrl).findOne();
+const doc = await queryContent(fullPath).findOne();
 
 const tree = parseSummary(summary);
 const flattened = flatten(tree);
+const prefix = flattened.get(fullPath)?.path.map(v => v.sectionNumber).join('.');
 
 const summaryStore = useSummaryStore();
 summaryStore.setTree(tree);

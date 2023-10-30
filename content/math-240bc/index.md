@@ -1,1 +1,3 @@
-# MATH 240BC
+---
+title: MATH 240BC
+---
