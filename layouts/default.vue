@@ -23,7 +23,7 @@
                             <li>
                                 <NuxtLink to="/">Home</NuxtLink>
                             </li>
-                            <li v-for="p in summary.flattened?.get(route.fullPath)?.path">
+                            <li v-for="p in flattened.get(route.fullPath)?.path">
                                 <NuxtLink :to="p.url">{{ p.title }}</NuxtLink>
                             </li>
                         </ul>
@@ -42,17 +42,26 @@
                     <NuxtLink to="/">Lecture Notes</NuxtLink>
                 </div>
             </div>
-            <TreeMenu :tree="summary.tree!" :flattened="summary.flattened!" />
+            <TreeMenu :tree="tree" :flattened="flattened" />
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import { useDefinitionCounterStore, usePropositionCounterStore, useTheoremCounterStore } from '@/stores/counter';
-import { useSummaryStore } from '@/stores/summary';
+import { useSummaryStore } from '~/stores/summary';
 
 const route = useRoute();
-const summary = useSummaryStore();
+const summaryUrl = `/${route.fullPath.split('/')[1]}/summary`;
+const { summary } = await queryContent(summaryUrl).findOne();
+
+const tree = parseSummary(summary);
+const flattened = flatten(tree);
+
+const summaryStore = useSummaryStore();
+summaryStore.setTree(tree);
+summaryStore.setFlattened(flattened);
+
 useDefinitionCounterStore().zero()
 usePropositionCounterStore().zero();
 useTheoremCounterStore().zero();
