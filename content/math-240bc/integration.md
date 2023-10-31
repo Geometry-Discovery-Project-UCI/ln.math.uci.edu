@@ -11,12 +11,13 @@ $$
 $$
 for any $U_i\cap U_j\neq\emptyset$. Such a set of coordinate charts is called an orientation of the manifold.
 \spc
-::Theorem
+::Theorem{tag="thm1"}
 A manifold is orientable if and only if there is an $n$-form on it which is nowhere zero. 
 ::
- 
 
-## Proof
+  proof of theorem :Reference{tag="thm1"}
+
+## Proofjjjj of Theorem :Reference{tag="thm1"}
 Let $\omega$ be a nowhere zero  $n$-form. Let $\{U_i\}_I$ be a cover of the manifold $M$. Assume that $(x_i^1,\cdots, x_i^n)$ be a coordinate system on $U_i$. Without loss of generality, we assume  $dx_i^1\wedge\cdots\wedge dx_i^n/\omega=f_i$ is a positive function\footnote{otherwise, we can exchange $x_i^1$ with $x_i^2$.}. Then 
 $$
 \det\frac{\pa (x_j^1,\cdots,x_j^n)}{\pa(x_i^1,\cdots,x_i^n)}=\frac{f_i}{f_j}>0.
@@ -37,6 +38,7 @@ $$
 $$
 we prove the conclusion.
  
-\begin{exercise} If $M$ is an orientable manifold with boundary, prove that $\pa M$ is also an orientable manifold.
-\end{exercise}
+::Exercise
+If $M$ is an orientable manifold with boundary, prove that $\pa M$ is also an orientable manifold.
+::
 
