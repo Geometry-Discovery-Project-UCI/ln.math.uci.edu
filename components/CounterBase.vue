@@ -12,6 +12,7 @@
 
 <script setup lang="ts">
 import { CounterStore } from "@/stores/counter";
+import { useTheoremsStore } from "@/stores/theorems";
 
 const props = defineProps<{
     name: string
@@ -19,9 +20,15 @@ const props = defineProps<{
     borderColor: string
     tagBgColor: string
     useCounterStore: CounterStore
+    tag?: string
 }>();
 
 const counter = props.useCounterStore();
 counter.increment();
 const count = counter.count;
+
+const { set } = useTheoremsStore();
+if (props.tag) {
+    set(props.tag, count);
+}
 </script>
