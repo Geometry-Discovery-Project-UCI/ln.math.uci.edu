@@ -1,5 +1,5 @@
 <template>
-    <CounterBase :name="name" bgColor="bg-blue-100" borderColor="border-blue-500" tagBgColor="bg-blue-600" :useCounterStore="useCounterStore">
+    <CounterBase :name="name" bgColor="bg-yellow-100" borderColor="border-yellow-500" tagBgColor="bg-yellow-600" :useCounterStore="useCounterStore">
         <slot></slot>
     </CounterBase>
 </template>

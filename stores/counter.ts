@@ -19,6 +19,8 @@ export type CounterStore = StoreDefinition<string, {
 }>
 
 export const useTheoremCounterStore: CounterStore = defineStore('theoremCounter', counter);
+export const useLemmaCounterStore: CounterStore = defineStore('lemmaCounter', counter);
 export const useDefinitionCounterStore: CounterStore = defineStore('definitionCounter', counter);
 export const usePropositionCounterStore: CounterStore = defineStore('propositionCounter', counter);
 export const useExerciseCounterStore: CounterStore = defineStore('exerciseCounter', counter);
+export const useRemarkCounterStore: CounterStore = defineStore('remarkCounter', counter);
