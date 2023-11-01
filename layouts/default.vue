@@ -52,7 +52,7 @@
 </template>
 
 <script setup lang="ts">
-import { useDefinitionCounterStore, usePropositionCounterStore, useTheoremCounterStore } from '@/stores/counter';
+import { useDefinitionCounterStore, useEquationCounterStore, useExerciseCounterStore, useLemmaCounterStore, usePropositionCounterStore, useRemarkCounterStore, useTheoremCounterStore } from '@/stores/counter';
 import { useSummaryStore } from '@/stores/summary';
 
 const { fullPath } = useRoute()
@@ -69,7 +69,11 @@ const summaryStore = useSummaryStore();
 summaryStore.setTree(tree);
 summaryStore.setFlattened(flattened);
 
-useDefinitionCounterStore().zero()
-usePropositionCounterStore().zero();
 useTheoremCounterStore().zero();
+useLemmaCounterStore().zero();
+useDefinitionCounterStore().zero();
+usePropositionCounterStore().zero();
+useExerciseCounterStore().zero();
+useRemarkCounterStore().zero();
+useEquationCounterStore().zero();
 </script>

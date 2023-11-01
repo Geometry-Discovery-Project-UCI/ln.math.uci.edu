@@ -24,3 +24,4 @@ export const useDefinitionCounterStore: CounterStore = defineStore('definitionCo
 export const usePropositionCounterStore: CounterStore = defineStore('propositionCounter', counter);
 export const useExerciseCounterStore: CounterStore = defineStore('exerciseCounter', counter);
 export const useRemarkCounterStore: CounterStore = defineStore('remarkCounter', counter);
+export const useEquationCounterStore: CounterStore = defineStore('equationCounter', counter);
